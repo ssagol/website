@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+    <title>HaberSitesi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <style>
+        #genelCerceve{
+            width: 850px;
+            height: 750px;
+            position: relative;
+            margin: auto;
+            border:1px solid black ;
+        }
+
+        #baslik{
+            float:right;
+            width:850px;
+            height:100px;
+            background:#999999;
+
+        }
+
+        .ortaCerceve{
+            float:left;
+            width: 850px;
+            height:600px;
+            background: #cccccc;
+
+            margin: auto;
+
+        } 
+
+        footer{
+            width:820px;
+            height:40px;
+            padding :15px;
+            background:#999999;
+            position:fixed;
+            bottom:0;
+            
+        }
+
+        #isim{
+            font-size:30px;
+            text-align:right;
+            text-shadow:3px 2px 2px #000;
+            padding:10px 50px;
+            margin-top:6px;
+
+        }
+
+        #resimEkleButon{
+            background-color: #cccccc;
+            color: black;
+            padding: 5px 10px;
+            text-align: center;
+            font-size: 12px;
+            border-radius:14px;
+            width:100px;
+            margin-left:30px;
+
+        }
+
+        #resetButon{
+            background-color:#cccccc;
+            color: black;
+            padding: 5px 10px;
+            text-align: center;
+            font-size: 12px;
+            border-radius:14px;
+            width:100px;
+            margin-left:30px;
+
+        }
+
+        #metinBasligi{
+            margin-left: 290px;
+            padding: 10px 60px;
+            text-shadow:3px 3px 3px #000;
+
+        }
+
+        #haberIcerigi{
+            text-align:justify;
+            font-size:14px;
+            margin-top:1px;
+            margin-right:22px;
+            float:right;
+            padding:8px;
+
+        }
+
+        #yaziYaniResim{
+            width:250px;
+            height:150px;
+            box-shadow:0 0 6px 4px black;
+            border-radius:14px;
+            margin-left:21px;
+            margin-top:5px;
+
+        }
+
+        #slider{
+            border: 1px solid black;
+            height: 150px;
+            background-color:white;
+            width:7000px;
+            float:left;
+        }
+
+        #baslik2{
+            font-size: 50px;
+            text-align: center;
+            width:500px;;
+            height:98px;
+            margin-right: 10px;
+            margin-top:20px;
+            float:right;
+        }
+        .container{
+            overflow-y:hidden;
+            overflow-x:auto;
+            width:825px;
+            height:150px;
+            margin-left:10px;
+        }
+
+
+
+    </style>
+</head>
+<body>
+<div id="genelCerceve">
+
+    <div id="baslik">
+
+        <div id="baslik1" style="float:left;">
+            <img src="logg.png" height="100"/> 
+        </div>
+
+        <div id="baslik2" style="">
+        </div>
+
+    </div>  
+
+    <div class="ortaCerceve">
+
+        <h2 id="metinBasligi">Küresel İnternet Hızı Yeniden Yükselişte </h2>
+        <img src="int.jpg" id="yaziYaniResim"/>
+
+        <pre id="haberIcerigi">
+	İnternet ve internet sayesinde erişilebilirlik artık günlük 
+	yaşantımızın bir numaralı vazgeçilmezi. Gerçi ülkemizde hala 
+	internet hızının düşürülmesi, erişim engelleri ya da internet 
+	sağlayıcılarının sunduğu hiç de adil olmayan saçma kota 
+	sistemleri gibi mantıksızca şeyler yüzünden bizim internet 
+	kullanırken keyif almaktan ziyade ''kaç GB kaldı?'' ya da
+	''hangi VPN daha iyi?'' gibi dertlerimiz oluyor fakat; dünya
+	genelinde internet hızı, yükseliş göstermeye devam ediyor.</pre>
+        <br></br>
+        <button type="button" onClick="ekle()" id="resimEkleButon">Resim Ekle</button>
+        <button type="button" onClick="sil()" id="resetButon">Resim Sil</button>
+
+        <br></br>
+
+        <div class="container"> 
+            <div id="slider">
+
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        Designed by SalihaSAGOL
+        <p> <a href="https://www.youtube.com">YouTube</a>
+            <a href="https://www.twitter.com">Twitter</a>
+            <a href="https://www.instagram.com">Instagram</a>
+        </p>
+    </footer>	
+
+</div>
+
+
+</body>
+</html>
+
+<script>
+
+    var person = prompt("Lütfen isminizi giriniz.");
+    alert(" Hosgeldiniz Sayin " + person);
+    document.getElementById("baslik2").innerHTML = "Merhaba," + " " + person;
+
+    imagesArray = new Array();
+    imagesArray[0] = "imag.jpg";
+    imagesArray[1] = "imag1.jpg";
+    imagesArray[2] = "imag2.jpg";
+    imagesArray[3] = "imag3.jpg";
+    imagesArray[4] = "imag4.jpg";
+    imagesArray[5] = "imag5.jpg";
+    imagesArray[6] = "imag6.jpg";
+    imagesArray[7] = "imag7.jpg";
+    imagesArray[8] = "imag8.jpg";
+    imagesArray[9] = "imag9.jpg";
+
+    function ekle()
+
+    {
+        var number = Math.floor(Math.random() * imagesArray.length);
+        var x = document.createElement("IMG");
+        x.setAttribute("src", imagesArray[number]);
+        x.setAttribute("width", "150");
+        x.setAttribute("style", "float:left; position: relative; padding:10px");
+        x.setAttribute("height", "100");
+        document.getElementById("slider").appendChild(x);
+        var y = document.getElementById("slider");
+        y.innerHTML += "     ";
+    }
+
+    function sil()
+    {
+        var x = document.getElementById("slider");
+        var img = x.getElementsByTagName("img");
+        img[img.length - 1].remove();
+    }
+
+
+
+</script>
+
+
